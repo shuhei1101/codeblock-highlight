@@ -44,6 +44,7 @@
               },
               "backgroundColor": {
                 "type": "string",
+                "format": "color",
                 "description": "Background color to apply to code blocks (hex color code)."
               }
             }
