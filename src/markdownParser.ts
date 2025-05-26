@@ -12,7 +12,7 @@ export class MarkdownParser {
         const blocks: CodeBlock[] = [];
         
         // コードブロック検出用の正規表現（インデントを許容）
-        const fenceRegex = /^[ \t]*```\s*([a-zA-Z0-9_+-]*)$/;
+        const fenceRegex = /^[ \t]*```\s*([a-zA-Z0-9_+\-:.]*)$/;
         
         let inCodeBlock = false;
         let startLine = -1;
