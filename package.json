@@ -2,10 +2,11 @@
   "name": "codeblock-highlight",
   "displayName": "CodeBlock Highlight",
   "description": "Markdown files code block background highlighter",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.100.0"
   },
+  "icon": "icon.png",
   "publisher": "ShuheiNishikawa",
   "categories": [
     "Other",
