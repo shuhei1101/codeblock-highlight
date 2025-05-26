@@ -4,6 +4,7 @@ All notable changes to the "codeblock-highlight" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.0.1]
 
 - Initial release
+- Added a function to set background color for code blocks in Markdown files by language
