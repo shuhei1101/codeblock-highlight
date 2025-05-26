@@ -2,7 +2,7 @@
   "name": "codeblock-highlight",
   "displayName": "CodeBlock Highlight",
   "description": "Markdown files code block background highlighter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -25,11 +25,11 @@
           "default": [
             {
               "languages": "py|python|Python",
-              "backgroundColor": "#fdf6e3"
+              "backgroundColor": "#f8f8f8"
             },
             {
               "languages": "js|javascript|JavaScript",
-              "backgroundColor": "#f0fff4"
+              "backgroundColor": "#f8f8f8"
             },
             {
               "languages": "default",
