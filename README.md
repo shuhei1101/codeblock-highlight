@@ -1,71 +1,78 @@
-# codeblock-highlight README
+# CodeBlock Highlight
 
-This is the README for your extension "codeblock-highlight". After writing up a brief description, we recommend including the following sections.
+この拡張機能は、Markdownファイル内のコードブロックの背景色を言語ごとにカスタマイズできるようにします。
 
-## Features
+## 機能
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Markdownファイル内のコードブロックの背景色を言語ごとに変更
+- 複数の言語識別子を一つの設定にマッピング可能（例: py, python, Python）
+- 言語が指定されていないコードブロックに対するデフォルト色の設定
 
-For example if there is an image subfolder under your extension project workspace:
+## 要件
 
-\!\[feature X\]\(images/feature-x.png\)
+この拡張機能には特別な要件はありません。
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## 拡張機能の設定
 
-## Requirements
+この拡張機能は以下の設定項目を提供します:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+* `codeblockHighlight.highlightColors`: コードブロックの言語ごとの背景色を指定します。
 
-## Extension Settings
+設定例:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```json
+"codeblockHighlight.highlightColors": [
+  {
+    "languages": "py|python|Python",
+    "backgroundColor": "#fdf6e3"
+  },
+  {
+    "languages": "js|javascript|JavaScript",
+    "backgroundColor": "#f0fff4"
+  },
+  {
+    "languages": "default",
+    "backgroundColor": "#f8f8f8"
+  }
+]
+```
 
-For example:
+各プロパティの説明:
 
-This extension contributes the following settings:
+- `languages`: 対象の言語識別子。パイプ(`|`)区切りで複数指定可能です。大文字/小文字は区別されます。
+- `backgroundColor`: コードブロックの背景に適用する色（16進数カラーコードなど）
+- `default`: 特別な言語識別子で、言語が指定されていないコードブロックに使用されます。
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## 既知の問題
 
-## Known Issues
+現在のところ既知の問題はありません。
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## リリースノート
 
-## Release Notes
+### 0.0.1
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+- 初期リリース
+- Markdownファイルのコードブロックに言語別に背景色を設定する機能を追加
 
 ---
 
-## Following extension guidelines
+## 拡張機能のガイドライン
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+拡張機能を作成する際のベストプラクティスについては、以下のガイドラインを参照してください。
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+* [拡張機能のガイドライン](https://code.visualstudio.com/api/references/extension-guidelines)
 
-## Working with Markdown
+## Markdownの操作
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+VS Codeを使用してREADMEを作成できます。以下は役立つエディタのキーボードショートカットです：
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+* エディタの分割（macOSでは`Cmd+\`、WindowsとLinuxでは`Ctrl+\`）
+* プレビューの切り替え（macOSでは`Shift+Cmd+V`、WindowsとLinuxでは`Shift+Ctrl+V`）
+* `Ctrl+Space`（Windows、Linux、macOS）を押すとMarkdownスニペットのリストが表示されます
 
-## For more information
+## 詳細情報
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+* [Visual Studio CodeのMarkdownサポート](http://code.visualstudio.com/docs/languages/markdown)
+* [Markdown構文リファレンス](https://help.github.com/articles/markdown-basics/)
 
-**Enjoy!**
+**お楽しみください！**

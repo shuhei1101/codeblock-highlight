@@ -1,21 +1,60 @@
 {
   "name": "codeblock-highlight",
   "displayName": "CodeBlock Highlight",
-  "description": "",
+  "description": "Markdown files code block background highlighter",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.100.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Formatters"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "CodeBlock Highlight",
+      "properties": {
+        "codeblockHighlight.highlightColors": {
+          "type": "array",
+          "default": [
+            {
+              "languages": "py|python|Python",
+              "backgroundColor": "#fdf6e3"
+            },
+            {
+              "languages": "js|javascript|JavaScript",
+              "backgroundColor": "#f0fff4"
+            },
+            {
+              "languages": "default",
+              "backgroundColor": "#f8f8f8"
+            }
+          ],
+          "description": "Configure code block highlight colors for different languages",
+          "items": {
+            "type": "object",
+            "properties": {
+              "languages": {
+                "type": "string",
+                "description": "Pipe-separated list of language identifiers to apply the color to. Use 'default' for unspecified languages."
+              },
+              "backgroundColor": {
+                "type": "string",
+                "description": "Background color to apply to code blocks (hex color code)."
+              }
+            }
+          }
+        }
+      }
+    },
     "commands": [
       {
-        "command": "codeblock-highlight.helloWorld",
-        "title": "Hello World"
+        "command": "codeblock-highlight.refreshHighlights",
+        "title": "Refresh Code Block Highlights"
       }
     ]
   },

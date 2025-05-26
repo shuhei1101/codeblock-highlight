@@ -22,8 +22,10 @@
   - 例: `{requirements-docs}`
 
 ## 3. 最初に読むべきドキュメント
-- 定数`requirements-docs`に記載されているドキュメントを最初に読んでください。
-- 
+- 定数`{requirements-docs}`に記載されているドキュメントを最初に読んでください。
+- `docs/code-style-guide-XXX.md`の内容を確認し、コーディング規約を理解してください。
+  - 共通のコーディング規約は`docs/code-style-guide-common.md`を参照してください。
+  - 言語に応じて`docs/code-style-guide-python.md`や`docs/code-style-guide-javascript.md`などのドキュメントを参照してください。
 
 ## 4. 作業手順
 - 本ドキュメントでは、GitHub Copilotとユーザで、依頼内容に基づく要件定義から実装までの流れを説明します。
