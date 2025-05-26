@@ -11,11 +11,12 @@ export class MarkdownParser {
         const lines = text.split('\n');
         const blocks: CodeBlock[] = [];
         
-        // コードブロック検出用の正規表現
-        const fenceRegex = /^```\s*([a-zA-Z0-9_+-]*)$/;
+        // コードブロック検出用の正規表現（インデントを許容）
+        const fenceRegex = /^[ \t]*```\s*([a-zA-Z0-9_+-]*)$/;
         
         let inCodeBlock = false;
         let startLine = -1;
+        let startIndent = '';  // インデントを記録
         let language = '';
         
         // 各行を処理
@@ -28,17 +29,24 @@ export class MarkdownParser {
                     // コードブロック開始
                     inCodeBlock = true;
                     startLine = i;
+                    // インデントを抽出して保存
+                    startIndent = line.match(/^[ \t]*/)?.[0] || '';
                     language = this.identifyCodeBlockLanguage(match[1]);
                 } else {
-                    // コードブロック終了
-                    inCodeBlock = false;
-                    blocks.push({
-                        range: {
-                            start: { line: startLine, character: 0 },
-                            end: { line: i, character: line.length }
-                        },
-                        language: language
-                    });
+                    // コードブロック終了（開始時と同じインデントレベルかどうかを確認）
+                    const currentIndent = line.match(/^[ \t]*/)?.[0] || '';
+                    
+                    // 開始と終了のインデントが同じ場合のみブロック終了とみなす
+                    if (currentIndent === startIndent) {
+                        inCodeBlock = false;
+                        blocks.push({
+                            range: {
+                                start: { line: startLine, character: 0 },
+                                end: { line: i, character: line.length }
+                            },
+                            language: language
+                        });
+                    }
                 }
             }
         }
