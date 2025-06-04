@@ -8,11 +8,12 @@ export class MarkdownParser {
      * @returns コードブロックの配列（範囲と言語情報を含む）
      */
     public parseMarkdown(text: string): CodeBlock[] {
-        const lines = text.split('\n');
+        // Windows (CRLF) と Unix (LF) の両方の改行文字に対応
+        const lines = text.split(/\r?\n/);
         const blocks: CodeBlock[] = [];
         
-        // コードブロック検出用の正規表現（インデントを許容）
-        const fenceRegex = /^[ \t]*```\s*([a-zA-Z0-9_+\-:.]*)$/;
+        // コードブロック検出用の正規表現（インデントと末尾の空白文字を許容）
+        const fenceRegex = /^[ \t]*```\s*([a-zA-Z0-9_+\-:.]*)\s*$/;
         
         let inCodeBlock = false;
         let startLine = -1;
